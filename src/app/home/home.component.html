@@ -1,0 +1,117 @@
+<div class="home-container">
+  <h4>
+    Gestión  de Colaboradores 
+    <button type="button" 
+      class="btn btn-primary" 
+      data-toggle="modal" 
+      data-target="#exampleModal" 
+      data-whatever="@fat">
+      <img src="/assets/img/add-24.ico">
+    </button>
+    <!-- Aqui empieza el modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Agregar Colaborador</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form [formGroup]="formAdd">
+              <div class="form-group">
+                <label class="col-form-label">Nombre</label>
+                <input type="text" class="form-control" formControlName="Nombre" >
+                <label  class="col-form-label">Apellidos</label>
+                <input type="text" class="form-control" formControlName="Apellido" >
+                <label  class="col-form-label">Identificación</label>
+                <input type="text" class="form-control" formControlName="Id">
+                <label  class="col-form-label">Usuario de Red</label>
+                <input type="text" class="form-control" formControlName="User">
+                <label  class="col-form-label">Cargo</label>
+                <input type="text" class="form-control" formControlName="Cargo">
+                <label  class="col-form-label">Estado</label>
+                <input type="text" class="form-control" formControlName="Estado" >
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" (click)="guardarColaborador()">Guardar</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Hasta aqui llega el modal-->
+    <!-- Aqui empieza el modal para editar-->
+    <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Editar información del Colaborador</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form [formGroup]="formEdit">
+              <div class="form-group">
+                <label class="col-form-label">Nombre</label>
+                <input type="text" class="form-control" required formControlName="Nombre" >
+                <label  class="col-form-label">Apellidos</label>
+                <input type="text" class="form-control" formControlName="Apellido" >
+                <label  class="col-form-label">Usuario de Red</label>
+                <input type="text" class="form-control" formControlName="User">
+                <label  class="col-form-label">Cargo</label>
+                <input type="text" class="form-control" formControlName="Cargo">
+                <label  class="col-form-label">Estado</label>
+                <input type="text" class="form-control" formControlName="Estado" >
+                <label  class="col-form-label">Fecha Registro</label>
+                <input type="text" class="form-control" formControlName="FechaIngreso" >
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" 
+            class="btn btn-primary">Guardar Cambios</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Hasta aqui llega el modal de editar-->
+  </h4>
+  <br>
+  <table class="table table-striped table-dark">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellido</th>
+          <th scope="col">Identificación</th>
+          <th scope="col">Usuario de red</th>
+          <th scope="col">Cargo</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody >
+        <tr *ngFor ="let key of array">
+          <th scope="row">1</th>
+          <td>{{key.nombre}}</td>
+          <td>{{key.apellido}}</td>
+          <td >{{key.identificacion}}</td>
+          <td>{{key.usuarioRed}}</td>
+          <td>{{key.cargo}}</td>
+          <td>
+            <button type="button" 
+              class="btn btn-success" 
+              data-toggle="modal" 
+              data-target="#exampleModal1" 
+              data-whatever="@fat"
+              (click)="editarColaborador(key)"> <img src="/assets/img/pencil-24.ico"></button>
+            <button type="button" class="btn btn-danger" (click)="eliminarColaborador(key.identificacion)"> <img src="/assets/img/trash-4-24.ico"></button></td>
+        </tr>
+      </tbody>
+    </table>
+</div>

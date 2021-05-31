@@ -1,0 +1,10 @@
+<div class="cardLogin">
+    <h1>Inicie Sesión</h1>
+    <form class="formulario" [formGroup]="formLogin">
+        <label>Usuario</label>
+        <input formControlName="Usuario" placeholder="Ingrese el usuario"/>
+        <label>Contraseña</label>
+        <input formControlName="Contraseña" placeholder="Ingrese la Contraseña"/>       
+    </form>
+    <button class="buttonIngresar" (click)="ingresar()">Ingresar</button>
+</div>

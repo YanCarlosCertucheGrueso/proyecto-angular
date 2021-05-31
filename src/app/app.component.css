@@ -1,0 +1,21 @@
+.contenedor-principal{
+    height: 100%;
+}
+.encabezado{
+    height: 15%;
+    border-bottom:solid black 3px;
+}
+.topEncabezado{
+    height: 50%;
+}
+
+.cuerpo{
+    height: 75%;
+    overflow-y: scroll;
+}
+
+.final{
+    border-top:solid black 4px;
+    height: 10%;
+    background-color: black;
+}
